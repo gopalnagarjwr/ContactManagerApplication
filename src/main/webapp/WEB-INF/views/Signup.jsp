@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1" %>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+     <title>Registration</title>
 <link rel="stylesheet" href="/CSS/style.css">
 <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.15.4/css/all.css'>
 <link
@@ -94,13 +94,6 @@
     </div>
 </div>
 
-<script src="https://cdn.tiny.cloud/1/126s68r91ilb8gdwbpa30fi53oa7qfdan0s9jsxfk22rxxi5/tinymce/7/tinymce.min.js"
-        referrerpolicy="origin"></script>
-<script>
-    tinymce.init({
-        selector: '#About'
-    });
-</script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>

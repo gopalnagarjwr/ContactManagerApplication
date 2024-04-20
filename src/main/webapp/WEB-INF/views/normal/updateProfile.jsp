@@ -91,12 +91,4 @@
             </div>
         </div>
     </div>
-
-    <script src="https://cdn.tiny.cloud/1/126s68r91ilb8gdwbpa30fi53oa7qfdan0s9jsxfk22rxxi5/tinymce/7/tinymce.min.js"
-            referrerpolicy="origin"></script>
-    <script>
-        tinymce.init({
-            selector: '#About'
-        });
-    </script>
 </section>

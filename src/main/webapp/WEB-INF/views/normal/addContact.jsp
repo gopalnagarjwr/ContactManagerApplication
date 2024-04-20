@@ -54,7 +54,7 @@
 
                     <div class="form-group">
                         <label for="description">Description:</label>
-                        <textarea class="form-control" id="description" name="description"
+                        <textarea class="form-control  border-0" id="description" name="description"
                                   placeholder="Enter a brief description about yourself"> ${contact.description}</textarea>
                     </div>
                     <div class=" form-group">
@@ -70,15 +70,6 @@
         </div>
     </div>
 </div>
-
-
-<!-- Place the first <script> tag in your HTML's <head> -->
-<script src="https://cdn.tiny.cloud/1/126s68r91ilb8gdwbpa30fi53oa7qfdan0s9jsxfk22rxxi5/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
-<script>
-    tinymce.init({
-        selector: '#description'
-    });
-</script>
 </div>
 
 
