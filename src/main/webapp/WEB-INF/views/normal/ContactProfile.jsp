@@ -11,7 +11,7 @@
                 </div>
                 <div class="contact-profile  p-3 ${contact == null ? 'd-none' : ''}">
                     <div class="profile-img ">
-                        <img src="/IMAGE/${contact.image}" alt="Profile Picture">
+                        <img src="data:image/jpeg;base64,${contact.base64Image}" alt="Profile Picture" class="img-fluid">
                     </div>
                     <h5 class="mb-3 contact-info"><i>${contact.name}</i></h5>
                     <div class="description font-monospace">${contact.description}</div>

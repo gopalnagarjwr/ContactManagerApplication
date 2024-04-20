@@ -45,7 +45,7 @@
             </div>
             <div class="col-lg-6">
                 <div class="about-avatar text-center ">
-                    <img src="/IMAGE/${user.image}" title="" alt="profile image" class="img-fluid" width="">
+                    <img src="data:image/jpeg;base64,${base64Image}" title="" alt="profile image" class="img-fluid" width="">
                 </div>
             </div>
         </div>

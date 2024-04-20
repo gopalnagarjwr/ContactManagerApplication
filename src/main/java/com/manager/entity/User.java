@@ -1,6 +1,7 @@
 package com.manager.entity;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.hibernate.annotations.Cascade;
@@ -12,6 +13,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Lob;
 import jakarta.persistence.OneToMany;
 
 import jakarta.validation.constraints.NotEmpty;
@@ -36,7 +38,10 @@ public class User {
     @NotEmpty(message = "Your Password is empty !!")
     private String Password;
     private String Phone;
-    private String Image;
+    
+    @Lob
+    @Column(columnDefinition = "LONGBLOB")
+    private byte [] Image;
     private String Role;
     @Column(name = "Mode")
     private String Enable;
@@ -53,107 +58,114 @@ public class User {
         super();
     }
 
-    public User(int id, String name, String email, String password, String phone, String image, String role,
-                String enable, String about, List<Contacts> ll) {
-        super();
-        Id = id;
-        this.name = name;
-        Email = email;
-        Password = password;
-        Phone = phone;
-        Image = image;
-        Role = role;
-        Enable = enable;
-        About = about;
-        this.ll = ll;
-    }
+	public User(int id,
+			@NotEmpty(message = "Name is empty !!") @Size(min = 2, max = 20, message = "min 3 character and maximum 20 character must be !!") String name,
+			@NotEmpty(message = "Your Email is empty !!") String email,
+			@NotEmpty(message = "Your Password is empty !!") String password, String phone, byte[] image, String role,
+			String enable, @NotEmpty(message = "Your About is empty !!") String about, List<Contacts> ll) {
+		super();
+		Id = id;
+		this.name = name;
+		Email = email;
+		Password = password;
+		Phone = phone;
+		Image = image;
+		Role = role;
+		Enable = enable;
+		About = about;
+		this.ll = ll;
+	}
 
-    public List<Contacts> getLl() {
-        return ll;
-    }
+	public int getId() {
+		return Id;
+	}
 
-    public void setLl(List<Contacts> ll) {
-        this.ll = ll;
-    }
+	public void setId(int id) {
+		Id = id;
+	}
 
-    public void setPhone(String phone) {
-        Phone = phone;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public String getPhone() {
-        return Phone;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public int getId() {
-        return Id;
-    }
+	public String getEmail() {
+		return Email;
+	}
 
-    public void setId(int id) {
-        Id = id;
-    }
+	public void setEmail(String email) {
+		Email = email;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public String getPassword() {
+		return Password;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public void setPassword(String password) {
+		Password = password;
+	}
 
-    public String getEmail() {
-        return Email;
-    }
+	public String getPhone() {
+		return Phone;
+	}
 
-    public void setEmail(String email) {
-        Email = email;
-    }
+	public void setPhone(String phone) {
+		Phone = phone;
+	}
 
-    public String getPassword() {
-        return Password;
-    }
+	public byte[] getImage() {
+		return Image;
+	}
 
-    public void setPassword(String password) {
-        Password = password;
-    }
+	public void setImage(byte[] image) {
+		Image = image;
+	}
 
-    public String getImage() {
-        return Image;
-    }
+	public String getRole() {
+		return Role;
+	}
 
-    public void setImage(String image) {
-        Image = image;
-    }
+	public void setRole(String role) {
+		Role = role;
+	}
 
-    public String getRole() {
-        return Role;
-    }
+	public String getEnable() {
+		return Enable;
+	}
 
-    public void setRole(String role) {
-        Role = role;
-    }
+	public void setEnable(String enable) {
+		Enable = enable;
+	}
 
-    public String getEnable() {
-        return Enable;
-    }
+	public String getAbout() {
+		return About;
+	}
 
-    public void setEnable(String enable) {
-        Enable = enable;
-    }
+	public void setAbout(String about) {
+		About = about;
+	}
 
-    public String getAbout() {
-        return About;
-    }
+	public List<Contacts> getLl() {
+		return ll;
+	}
 
-    public void setAbout(String about) {
-        About = about;
-    }
+	public void setLl(List<Contacts> ll) {
+		this.ll = ll;
+	}
 
-    @Override
-    public String toString() {
-        return "User [Id=" + Id + ", Name=" + name + ", Email=" + Email + ", Password=" + Password + ", Phone=" + Phone
-                + ", Image=" + Image + ", Role=" + Role + ", Enable=" + Enable + ", About=" + About + ", ll=" + ll
-                + "]";
-    }
+	@Override
+	public String toString() {
+		return "User [Id=" + Id + ", name=" + name + ", Email=" + Email + ", Password=" + Password + ", Phone=" + Phone
+				+ ", Image=" + Arrays.toString(Image) + ", Role=" + Role + ", Enable=" + Enable + ", About=" + About
+				+ ", ll=" + ll + "]";
+	}
+	
+	
+
+   
 
 
 }

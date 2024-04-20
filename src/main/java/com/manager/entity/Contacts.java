@@ -5,6 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
@@ -21,7 +22,11 @@ public class Contacts {
     private String work;
     @NotEmpty(message = "email is empty !")
     private String email;
-    private String image;
+    
+    @Lob
+    @Column(columnDefinition = "LONGBLOB")
+    private byte [] image;
+    
     @NotEmpty(message = "phone number is empty !")
     @Size(min = 10, max=10, message = "digit 10 must required")
     private String phone;
@@ -29,13 +34,23 @@ public class Contacts {
 
     @ManyToOne
     private User u;
+    
+    private String base64Image;
 
-    public Contacts() {
+    public String getBase64Image() {
+		return base64Image;
+	}
+
+	public void setBase64Image(String base64Image) {
+		this.base64Image = base64Image;
+	}
+
+	public Contacts() {
         super();
 
     }
 
-    public Contacts(int cid, String name, String nickName, String work, String email, String image, String phone,
+    public Contacts(int cid, String name, String nickName, String work, String email, byte [] image, String phone,
                     String description, User u) {
         super();
         this.cid = cid;
@@ -97,11 +112,11 @@ public class Contacts {
         this.email = email;
     }
 
-    public String getImage() {
+    public byte [] getImage() {
         return this.image;
     }
 
-    public void setImage(String image) {
+    public void setImage(byte [] image) {
         this.image = image;
     }
 

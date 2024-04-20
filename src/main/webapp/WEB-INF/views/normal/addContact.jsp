@@ -60,7 +60,7 @@
                     <div class=" form-group">
                         <input type="file" class="form-control ${emptyfile? 'is-invalid' : ''}" name="profileImage"
                                accept="profileImage/*">
-                        <img src="/IMAGE/${contact.image}">
+                        <img src="data:image/jpeg;base64,${contact.base64Image}">
                     </div>
                     <div class="d-flex justify-content-end">
                         <button type="submit" class="btn btn-primary btn-block">Save Contact</button>

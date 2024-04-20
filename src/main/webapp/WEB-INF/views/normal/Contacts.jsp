@@ -40,7 +40,7 @@
                         <c:forEach var="con" items="${contacts.content}">
                             <tr>
                                 <td>
-                                    <img src="/IMAGE/${con.image}" alt="">
+                                    <img src="data:image/jpeg;base64,${con.base64Image}" alt="">
                                     <a href="/user/contact-profile/${con.cid}" class="user-link">${con.name}</a>
                                     <span class="user-subhead">${con.work}</span>
                                 </td>
