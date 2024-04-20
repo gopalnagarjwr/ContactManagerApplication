@@ -58,8 +58,9 @@
                                   placeholder="Enter a brief description about yourself"> ${contact.description}</textarea>
                     </div>
                     <div class=" form-group">
+                    <small  class="text-danger">* Choose only jpg </small>
                         <input type="file" class="form-control ${emptyfile? 'is-invalid' : ''}" name="profileImage"
-                               accept="profileImage/*">
+                               accept="profileImage/*" >   
                         <img src="data:image/jpeg;base64,${contact.base64Image}">
                     </div>
                     <div class="d-flex justify-content-end">

@@ -120,17 +120,16 @@ public class UserController {
 	@GetMapping("/show-contact/{currentPage}")
 	public String showContact(@PathVariable("currentPage") Integer currentPage, ModelMap model) {
 		User u = (User) model.get("user");
-	
 
 		Pageable page = PageRequest.of(currentPage, 5);
 
 		Page<Contacts> contacts = contactRepository.findAllByU_Id(u.getId(), page);
-		
+
 		for (Contacts contact : contacts.getContent()) {
-		  contact.setBase64Image(Base64.getEncoder().encodeToString(contact.getImage()));
-		   
+			contact.setBase64Image(Base64.getEncoder().encodeToString(contact.getImage()));
+
 		}
-		
+
 		model.put("contacts", contacts);
 		model.put("currentPage", currentPage);
 		model.put("totalPage", contacts.getTotalPages());
