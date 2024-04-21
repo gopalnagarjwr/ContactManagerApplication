@@ -61,8 +61,10 @@ public class UserController {
 	@GetMapping("/profileUser")
 	public String profile(ModelMap model) {
 		User u = (User) model.get("user");
-		String base64Image = Base64.getEncoder().encodeToString(u.getImage());
-		model.put("base64Image", base64Image);
+		if (u.getImage() != null) {
+		    String base64Image = Base64.getEncoder().encodeToString(u.getImage());
+		    model.put("base64Image", base64Image);
+		}
 		return "normal/Profile";
 	}
 
@@ -225,30 +227,28 @@ public class UserController {
 				throw new Exception("You have not agreed Enable Account !! ");
 			}
 			User user = (User) model.get("user");
-
+			User u = this.userRepository.findById(user.getId()).get();
 			if (!file.isEmpty()) {
 				user2.setImage(file.getBytes());
 			} else {
-				user2.setImage(user.getImage());
+				if (user.getImage() != null) {
+				    user2.setImage(user.getImage());
+				  
+				}
+				
 			}
-
-			if (!user2.getPassword().equals("jwr")) {
-//                user2.setPassword(this.passwordEncoder.encode(user2.getPassword()));
-
-			} else {
-				user2.setPassword(user.getPassword());
-			}
-			User u = this.userRepository.findById(user.getId()).get();
+			
 			u.setImage(user2.getImage());
 			u.setName(user2.getName());
 			u.setAbout(user2.getAbout());
 			u.setPassword(user2.getPassword());
 			u.setPhone(user2.getPhone());
 			u = this.userRepository.save(u);
-
-			String base64Image = Base64.getEncoder().encodeToString(u.getImage());
-			redirectAttributes.addFlashAttribute("base64Image", base64Image);
-
+			
+			if (u.getImage() != null) {
+			    String base64Image = Base64.getEncoder().encodeToString(u.getImage());
+				redirectAttributes.addFlashAttribute("base64Image", base64Image);
+			}
 			redirectAttributes.addFlashAttribute("successMessage", "Successfully update your information !!");
 			return "redirect:/user/profileUser";
 

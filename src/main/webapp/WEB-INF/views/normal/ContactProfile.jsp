@@ -22,7 +22,7 @@
                         </tr>
                         <tr>
                             <td class="contact-info">Email :</td>
-                            <td>${contact.email}</td>
+                            <td><a href="/sender/G-mail/${contact.cid}" >${contact.email}</a></td>
                         </tr>
                         <tr>
                             <td class="contact-info">Phone Number :</td>

@@ -42,7 +42,7 @@
 										<label class="form-label" for="password">Password</label> <input
 											type="password"
 											class="form-control ${errors.hasFieldErrors('Password') ? 'is-invalid' : ''}"
-											id="password" name="Password" value="jwr">
+											id="password" name="Password" value="${user1.password}">
 										<div class="invalid-feedback">${ errors.getFieldError("Password").getDefaultMessage()}
 										</div>
 									</div>

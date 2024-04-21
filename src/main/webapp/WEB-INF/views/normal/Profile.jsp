@@ -45,7 +45,7 @@
             </div>
             <div class="col-lg-6">
                 <div class="about-avatar text-center ">
-                    <img src="data:image/jpeg;base64,${base64Image}" title="" alt="profile image" class="img-fluid" width="">
+                    <img src=${not empty base64Image?"data:image/jpeg;base64,${base64Image}":"https://tse4.explicit.bing.net/th?id=OIP.audMX4ZGbvT2_GJTx2c4GgHaHw&pid=Api&P=0&h=180"} title="" alt="profile image" class="img-fluid" width="">
                 </div>
             </div>
         </div>
