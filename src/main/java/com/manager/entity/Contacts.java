@@ -9,6 +9,7 @@ import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
+import org.springframework.http.converter.json.GsonBuilderUtils;
 
 @Entity
 public class Contacts {
@@ -22,7 +23,8 @@ public class Contacts {
     private String work;
     @NotEmpty(message = "email is empty !")
     private String email;
-    
+
+
     @Lob
     @Column(columnDefinition = "LONGBLOB")
     private byte [] image;
@@ -47,7 +49,6 @@ public class Contacts {
 
 	public Contacts() {
         super();
-
     }
 
     public Contacts(int cid, String name, String nickName, String work, String email, byte [] image, String phone,

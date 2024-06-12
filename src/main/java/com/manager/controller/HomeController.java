@@ -22,6 +22,8 @@ public class HomeController {
 
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    private HttpSession httpSession;
 
 //    @Autowired
 //    public PasswordEncoder passwordEncoder;
@@ -34,7 +36,7 @@ public class HomeController {
         }
     }
 
-    @RequestMapping("/home")
+    @RequestMapping(value = "/home")
     public String home(ModelMap model, Principal principal) {
 
         return "Home";
